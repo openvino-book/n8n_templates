@@ -1,0 +1,87 @@
+{
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -520,
+        -200
+      ],
+      "id": "64b40a93-7d56-4021-99ba-19a7648cf60d",
+      "name": "When chat message received",
+      "webhookId": "400326f7-da57-4da5-9fc1-ab1a25a0478e"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.8,
+      "position": [
+        -300,
+        -200
+      ],
+      "id": "74231835-7093-4692-9bcc-703a0724346d",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatDeepSeek",
+      "typeVersion": 1,
+      "position": [
+        -320,
+        -20
+      ],
+      "id": "865757c4-849d-4421-a9a4-5db3c7ad0640",
+      "name": "DeepSeek Chat Model",
+      "credentials": {
+        "deepSeekApi": {
+          "id": "B6qr3ZiJYP3EFtIo",
+          "name": "DeepSeek account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DeepSeek Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "8eb1def1-a15b-4427-8be4-aac0efb22366",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "46b951d13ac7ce371aae7973c46107bb7eb2810bbeab2437b0d3dae6637b4b11"
+  },
+  "id": "qqDsprmhjHweBqJ8",
+  "tags": []
+}
